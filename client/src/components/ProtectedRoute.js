@@ -44,7 +44,7 @@ useEffect(()=>{
                 <div>
                   <h1 className="text-2xl text-white cursor-pointer"
                     onClick={() => navigate("/")}
-                  >MovieHouse</h1>
+                  >MoviesHouse</h1>
                 </div>
       
                 <div className="bg-white p-1 flex gap-1">

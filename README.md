@@ -1,4 +1,4 @@
-# MovieHouse
+# MoviesHouse
 
 ## Introduction
 ### Following features are added in this project:
