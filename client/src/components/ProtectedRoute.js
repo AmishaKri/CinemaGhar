@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { SetUser } from '../redux/usersSlice';
 import { HideLoading,ShowLoading} from '../redux/loadersSlice';
+import Cookies from "js-cookie"
 function ProtectedRoute({children}){
     
     const navigate=useNavigate();
@@ -30,7 +31,7 @@ function ProtectedRoute({children}){
     }
 }
 useEffect(()=>{
-    if(localStorage.getItem('token')){
+    if(Cookies.get('token')){
         getCurrentUser();
     }else{
         navigate('/login');
@@ -64,7 +65,7 @@ useEffect(()=>{
                   <i
                     className="ri-logout-box-r-line ml-2"
                     onClick={() => {
-                      localStorage.removeItem("token");
+                      Cookies.remove("token");
                       navigate("/login");
                     }}
                   ></i>

@@ -5,6 +5,7 @@ import {Link,useNavigate} from 'react-router-dom';
 import { LoginUser } from '../../apicalls/users';
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
+import Cookies from "js-cookie"
 function LOGIN() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
@@ -15,7 +16,7 @@ function LOGIN() {
 
       if(response.success){
         message.success(response.message);
-        localStorage.setItem("token",response.data);
+        Cookies.set("token",response.data);
         dispatch(HideLoading());
         navigate("/");
        console.log("Reached here");
@@ -29,7 +30,7 @@ function LOGIN() {
      }
   }
   // useEffect(()=>{
-  //   if(localStorage.getItem("token")){
+  //   if(Cookies.get("token")){
   //     console.log("Reached here in useEffect before navigate");
   //     navigate("/");
   //     console.log("Reached here in useEffect after navigate");

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../apicalls/users";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
-
+import Cookies from "js-cookie"
 function Register() {
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -31,7 +31,7 @@ function Register() {
     }
   };
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    if (Cookies.get("token")) {
       navigate("/");
     }
   }, [navigate]);
