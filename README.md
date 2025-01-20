@@ -1,4 +1,4 @@
-# CinemaGhar
+# MovieHouse
 
 ## Introduction
 ### Following features are added in this project:
